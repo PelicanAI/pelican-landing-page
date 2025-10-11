@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ArrowRight, Terminal, Brain, Zap, ChevronDown } from 'lucide-react';
 
 export default function Home() {
@@ -70,9 +71,11 @@ export default function Home() {
       <header className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-sm fixed w-full z-10">
         <div className="max-w-6xl mx-auto px-4 py-3 md:px-6 md:py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <img
+            <Image
               src="/pelicanlogotransparent.png"
               alt="Pelican Logo"
+              width={32}
+              height={32}
               className="w-8 h-8 md:w-10 md:h-10 drop-shadow-lg"
             />
             <span className="text-lg md:text-xl font-bold">Pelican</span>
@@ -189,7 +192,7 @@ export default function Home() {
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Democratize Algorithmic Trading</h3>
               <p className="text-sm md:text-base leading-relaxed">
-                Professional-grade trading tools shouldn't require a team of quants and engineers. Pelican makes systematic trading accessible to anyone who understands markets.
+                Professional-grade trading tools shouldn&apos;t require a team of quants and engineers. Pelican makes systematic trading accessible to anyone who understands markets.
               </p>
             </div>
 
