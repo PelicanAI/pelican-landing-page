@@ -174,9 +174,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
               <Terminal className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
-              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Strategy Development</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Market Statistics & Strategy Intelligence</h3>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                Write trading strategies in natural language. Pelican generates code and optimizes parameters automatically.
+                Quant insights in plain English. Ask any market question — Pelican instantly surfaces the stats behind it: pattern frequencies, forward returns, volatility behavior, correlations, and edge persistence. The same engine can turn those findings into structured strategies when you&apos;re ready, built on real data — not guesses.
               </p>
             </div>
 
@@ -184,15 +184,15 @@ export default function Home() {
               <Brain className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Market Analysis</h3>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                Analyze price action, identify patterns, run statistical tests, and generate insights from market data in real-time.
+                Understand the &quot;why&quot; behind the move. Pelican analyzes price action, volatility shifts, and inter-market behavior in real time — identifying relationships, stress points, and regime changes that traditional tools overlook. It&apos;s not just showing charts; it&apos;s revealing context.
               </p>
             </div>
 
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
               <Zap className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
-              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Strategy Deployment</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Adaptive Learning</h3>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                Deploy strategies to live markets and manage risk. Full control with intelligent guardrails.
+                Built to evolve with every question. Pelican learns from your style, adjusts the depth of its analysis, and refines insights as markets change. The more you interact, the sharper it becomes — building a personalized understanding of how you trade and think.
               </p>
             </div>
           </div>
