@@ -176,7 +176,7 @@ export default function Home() {
               <Terminal className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Market Statistics & Strategy Intelligence</h3>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                Quant insights in plain English. Ask any market question — Pelican instantly surfaces the stats behind it: pattern frequencies, forward returns, volatility behavior, correlations, and edge persistence. The same engine can turn those findings into structured strategies when you&apos;re ready, built on real data — not guesses.
+                Quant insights in plain English. Ask any market question and Pelican instantly surfaces the stats behind it: pattern frequencies, forward returns, volatility behavior, correlations, and edge persistence. The same engine can turn those findings into structured strategies when you&apos;re ready, built on real data, not guesses.
               </p>
             </div>
 
@@ -184,7 +184,7 @@ export default function Home() {
               <Brain className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Market Analysis</h3>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                Understand the &quot;why&quot; behind the move. Pelican analyzes price action, volatility shifts, and inter-market behavior in real time — identifying relationships, stress points, and regime changes that traditional tools overlook. It&apos;s not just showing charts; it&apos;s revealing context.
+                Understand the &quot;why&quot; behind the move. Pelican analyzes price action, volatility shifts, and inter-market behavior in real time, identifying relationships, stress points, and regime changes that traditional tools overlook. It&apos;s not just showing charts; it&apos;s revealing context.
               </p>
             </div>
 
@@ -192,7 +192,7 @@ export default function Home() {
               <Zap className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Adaptive Learning</h3>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                Built to evolve with every question. Pelican learns from your style, adjusts the depth of its analysis, and refines insights as markets change. The more you interact, the sharper it becomes — building a personalized understanding of how you trade and think.
+                Built to evolve with every question. Pelican learns from your style, adjusts the depth of its analysis, and refines insights as markets change. The more you interact, the sharper it becomes, building a personalized understanding of how you trade and think.
               </p>
             </div>
           </div>
