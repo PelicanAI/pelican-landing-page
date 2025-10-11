@@ -1,102 +1,226 @@
-import Image from "next/image";
+'use client';
+
+import React, { useState } from 'react';
+import { ArrowRight, Terminal, Brain, Zap, ChevronDown } from 'lucide-react';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const handleSubmit = async () => {
+    if (!email || !email.includes('@')) {
+      setError('Please enter a valid email');
+      return;
+    }
+
+    try {
+      const supabaseUrl = 'https://ewcqmsfaostcwmgybbub.supabase.co';
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV3Y3Ftc2Zhb3N0Y3dtZ3liYnViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MDc2NzgsImV4cCI6MjA2NzQ4MzY3OH0.fTisTg3jBy2WSuuIkvWToZ8c3R133QJ5FL0o0Q7c4MU';
+
+      const response = await fetch(`${supabaseUrl}/rest/v1/waitlist`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ email })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setError('');
+        setTimeout(() => {
+          setSubmitted(false);
+          setEmail('');
+        }, 3000);
+      } else {
+        const data = await response.json();
+        if (data.message?.includes('duplicate')) {
+          setError('Email already registered');
+        } else {
+          setError('Something went wrong. Please try again.');
+        }
+      }
+    } catch (err) {
+      setError('Failed to submit. Please try again.');
+      console.error('Error:', err);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+      {/* Header */}
+      <header className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-sm fixed w-full z-10">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <img
+              src="/pelicanlogotransparent.png"
+              alt="Pelican Logo"
+              className="w-12 h-12 drop-shadow-lg"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <span className="text-xl font-bold">Pelican</span>
+          </div>
+          <button className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors text-sm font-medium">
+            Get Early Access
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-6">
+            AI-Powered Trading Assistant
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-100 to-purple-400 bg-clip-text text-transparent">
+            A True AI Trading Assistant
+          </h1>
+
+          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+            An AI agent that understands markets, writes strategies, analyzes data, and executes trades.
+            Build, backtest, and deploy trading systems through conversation.
+          </p>
+
+          {/* Email Signup */}
+          <div className="max-w-md mx-auto">
+            <div className="flex gap-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+              />
+              <button
+                onClick={handleSubmit}
+                className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center gap-2 whitespace-nowrap"
+              >
+                {submitted ? 'Subscribed!' : 'Get Notified'}
+                {!submitted && <ArrowRight className="w-4 h-4" />}
+              </button>
+            </div>
+            {error && <p className="text-sm text-red-400 mt-2">{error}</p>}
+            <p className="text-sm text-slate-400 mt-3">
+              Join the waitlist for early access
+            </p>
+          </div>
+
+          <div className="mt-12 text-sm text-slate-400">
+            <ChevronDown className="w-5 h-5 mx-auto animate-bounce" />
+          </div>
+        </div>
+      </section>
+
+      {/* What Pelican Does */}
+      <section className="py-20 px-6 border-t border-slate-800">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-16">What Pelican Does</h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition-all">
+              <Terminal className="w-10 h-10 text-purple-400 mb-4" />
+              <h3 className="text-xl font-semibold mb-3">Strategy Development</h3>
+              <p className="text-slate-400">
+                Write trading strategies in natural language. Pelican generates code, backtests performance, and optimizes parameters automatically.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition-all">
+              <Brain className="w-10 h-10 text-purple-400 mb-4" />
+              <h3 className="text-xl font-semibold mb-3">Market Analysis</h3>
+              <p className="text-slate-400">
+                Analyze price action, identify patterns, run statistical tests, and generate insights from market data in real-time.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition-all">
+              <Zap className="w-10 h-10 text-purple-400 mb-4" />
+              <h3 className="text-xl font-semibold mb-3">Execution & Automation</h3>
+              <p className="text-slate-400">
+                Deploy strategies to live markets, manage risk, and automate execution. Full control with intelligent guardrails.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="py-20 px-6 bg-slate-900/30">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Mission</h2>
+
+          <div className="space-y-6 text-slate-300">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-3 text-white">Democratize Algorithmic Trading</h3>
+              <p>
+                Professional-grade trading tools shouldn't require a team of quants and engineers. Pelican makes systematic trading accessible to anyone who understands markets.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-3 text-white">Think in Ideas, Not Code</h3>
+              <p>
+                Focus on trading logic and market intuition. Pelican handles the technical complexity—from data processing to execution infrastructure.
+              </p>
+            </div>
+
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-3 text-white">Ship Faster, Trade Smarter</h3>
+              <p>
+                Iterate on strategies in minutes instead of weeks. Test hypotheses, analyze results, and deploy to production without context switching.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-purple-900/20 to-slate-900/20 border-t border-slate-800">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Transform Your Trading?
+          </h2>
+          <p className="text-slate-300 mb-8 text-lg">
+            Join the waitlist and be among the first to experience Pelican when we launch
+          </p>
+
+          <div className="max-w-md mx-auto flex gap-3">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+            />
+            <button
+              onClick={handleSubmit}
+              className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center gap-2 whitespace-nowrap"
+            >
+              {submitted ? 'Subscribed!' : 'Join Waitlist'}
+              {!submitted && <ArrowRight className="w-4 h-4" />}
+            </button>
+          </div>
+          {error && <p className="text-sm text-red-400 mt-2">{error}</p>}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-800 py-8 px-6">
+        <div className="max-w-6xl mx-auto text-center text-slate-400 text-sm">
+          <p>© 2025 Pelican. Built by traders who wanted institutional grade analytics.</p>
+        </div>
       </footer>
     </div>
   );
