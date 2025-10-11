@@ -5,12 +5,14 @@ import { ArrowRight, Terminal, Brain, Zap, ChevronDown } from 'lucide-react';
 
 export default function Home() {
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [twitterHandle, setTwitterHandle] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async () => {
-    if (!email || !email.includes('@')) {
-      setError('Please enter a valid email');
+    if (!email && !phone && !twitterHandle) {
+      setError('Please enter at least one field');
       return;
     }
 
@@ -26,7 +28,11 @@ export default function Home() {
           'Authorization': `Bearer ${supabaseKey}`,
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({
+          email: email || null,
+          phone: phone || null,
+          twitter_handle: twitterHandle || null
+        })
       });
 
       if (response.ok) {
@@ -35,6 +41,8 @@ export default function Home() {
         setTimeout(() => {
           setSubmitted(false);
           setEmail('');
+          setPhone('');
+          setTwitterHandle('');
         }, 3000);
       } else {
         const data = await response.json();
@@ -87,24 +95,41 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-            An AI agent that understands markets, writes strategies, analyzes data, and executes trades.
-            Build, backtest, and deploy trading systems through conversation.
+            An AI agent that understands markets, writes strategies, and analyzes data.
+            Build and deploy trading systems through conversation.
           </p>
 
           {/* Email Signup */}
           <div className="max-w-md mx-auto">
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                placeholder="Email (optional)"
+                className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+              />
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Phone number (optional)"
+                className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+              />
+              <input
+                type="text"
+                value={twitterHandle}
+                onChange={(e) => setTwitterHandle(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Twitter/X handle (optional)"
+                className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
               />
               <button
                 onClick={handleSubmit}
-                className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center gap-2 whitespace-nowrap"
+                disabled={!email && !phone && !twitterHandle}
+                className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitted ? 'Subscribed!' : 'Get Notified'}
                 {!submitted && <ArrowRight className="w-4 h-4" />}
@@ -132,7 +157,7 @@ export default function Home() {
               <Terminal className="w-10 h-10 text-purple-400 mb-4" />
               <h3 className="text-xl font-semibold mb-3">Strategy Development</h3>
               <p className="text-slate-400">
-                Write trading strategies in natural language. Pelican generates code, backtests performance, and optimizes parameters automatically.
+                Write trading strategies in natural language. Pelican generates code and optimizes parameters automatically.
               </p>
             </div>
 
@@ -146,9 +171,9 @@ export default function Home() {
 
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition-all">
               <Zap className="w-10 h-10 text-purple-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Execution & Automation</h3>
+              <h3 className="text-xl font-semibold mb-3">Strategy Deployment</h3>
               <p className="text-slate-400">
-                Deploy strategies to live markets, manage risk, and automate execution. Full control with intelligent guardrails.
+                Deploy strategies to live markets and manage risk. Full control with intelligent guardrails.
               </p>
             </div>
           </div>
@@ -171,7 +196,7 @@ export default function Home() {
             <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
               <h3 className="text-xl font-semibold mb-3 text-white">Think in Ideas, Not Code</h3>
               <p>
-                Focus on trading logic and market intuition. Pelican handles the technical complexity—from data processing to execution infrastructure.
+                Focus on trading logic and market intuition. Pelican handles the technical complexity—from data processing to deployment infrastructure.
               </p>
             </div>
 
@@ -195,18 +220,35 @@ export default function Home() {
             Join the waitlist and be among the first to experience Pelican when we launch
           </p>
 
-          <div className="max-w-md mx-auto flex gap-3">
+          <div className="max-w-md mx-auto flex flex-col gap-3">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+              placeholder="Email (optional)"
+              className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+            />
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Phone number (optional)"
+              className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+            />
+            <input
+              type="text"
+              value={twitterHandle}
+              onChange={(e) => setTwitterHandle(e.target.value)}
+              onKeyPress={handleKeyPress}
+              placeholder="Twitter/X handle (optional)"
+              className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
             />
             <button
               onClick={handleSubmit}
-              className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center gap-2 whitespace-nowrap"
+              disabled={!email && !phone && !twitterHandle}
+              className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {submitted ? 'Subscribed!' : 'Join Waitlist'}
               {!submitted && <ArrowRight className="w-4 h-4" />}
