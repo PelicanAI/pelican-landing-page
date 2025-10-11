@@ -97,7 +97,7 @@ export default function Home() {
             <span className="text-lg md:text-xl font-bold">Pelican</span>
           </div>
           <button className="px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium">
-            Get Early Access
+            Join the Waitlist
           </button>
         </div>
       </header>
