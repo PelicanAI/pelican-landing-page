@@ -68,39 +68,39 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
       {/* Header */}
       <header className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-sm fixed w-full z-10">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-6xl mx-auto px-4 py-3 md:px-6 md:py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <img
               src="/pelicanlogotransparent.png"
               alt="Pelican Logo"
-              className="w-12 h-12 drop-shadow-lg"
+              className="w-8 h-8 md:w-10 md:h-10 drop-shadow-lg"
             />
-            <span className="text-xl font-bold">Pelican</span>
+            <span className="text-lg md:text-xl font-bold">Pelican</span>
           </div>
-          <button className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors text-sm font-medium">
+          <button className="px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium">
             Get Early Access
           </button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-24 pb-12 px-4 md:pt-32 md:pb-20 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-block px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-6">
+          <div className="inline-block px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs md:text-sm font-medium mb-4 md:mb-6">
             AI-Powered Trading Assistant
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-100 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-purple-100 to-purple-400 bg-clip-text text-transparent px-2">
             A True AI Trading Assistant
           </h1>
 
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-slate-300 mb-8 md:mb-10 max-w-2xl mx-auto px-2">
             An AI agent that understands markets, writes strategies, and analyzes data.
             Build and deploy trading systems through conversation.
           </p>
 
           {/* Email Signup */}
-          <div className="max-w-md mx-auto">
+          <div className="max-w-md mx-auto px-4 md:px-0">
             <div className="flex flex-col gap-3">
               <input
                 type="email"
@@ -108,7 +108,7 @@ export default function Home() {
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Email (optional)"
-                className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
               />
               <input
                 type="tel"
@@ -116,7 +116,7 @@ export default function Home() {
                 onChange={(e) => setPhone(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Phone number (optional)"
-                className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
               />
               <input
                 type="text"
@@ -124,55 +124,55 @@ export default function Home() {
                 onChange={(e) => setTwitterHandle(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Twitter/X handle (optional)"
-                className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
+                className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
               />
               <button
                 onClick={handleSubmit}
                 disabled={!email && !phone && !twitterHandle}
-                className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full min-h-[44px] px-6 py-3 md:py-3.5 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-base"
               >
                 {submitted ? 'Subscribed!' : 'Get Notified'}
                 {!submitted && <ArrowRight className="w-4 h-4" />}
               </button>
             </div>
-            {error && <p className="text-sm text-red-400 mt-2">{error}</p>}
-            <p className="text-sm text-slate-400 mt-3">
+            {error && <p className="text-sm text-red-400 mt-2 text-center">{error}</p>}
+            <p className="text-sm text-slate-400 mt-3 text-center">
               Join the waitlist for early access
             </p>
           </div>
 
-          <div className="mt-12 text-sm text-slate-400">
+          <div className="mt-8 md:mt-12 text-sm text-slate-400">
             <ChevronDown className="w-5 h-5 mx-auto animate-bounce" />
           </div>
         </div>
       </section>
 
       {/* What Pelican Does */}
-      <section className="py-20 px-6 border-t border-slate-800">
+      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-800">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16">What Pelican Does</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16">What Pelican Does</h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition-all">
-              <Terminal className="w-10 h-10 text-purple-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Strategy Development</h3>
-              <p className="text-slate-400">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
+              <Terminal className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Strategy Development</h3>
+              <p className="text-sm md:text-base text-slate-400 leading-relaxed">
                 Write trading strategies in natural language. Pelican generates code and optimizes parameters automatically.
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition-all">
-              <Brain className="w-10 h-10 text-purple-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Market Analysis</h3>
-              <p className="text-slate-400">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
+              <Brain className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Market Analysis</h3>
+              <p className="text-sm md:text-base text-slate-400 leading-relaxed">
                 Analyze price action, identify patterns, run statistical tests, and generate insights from market data in real-time.
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/50 transition-all">
-              <Zap className="w-10 h-10 text-purple-400 mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Strategy Deployment</h3>
-              <p className="text-slate-400">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
+              <Zap className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">Strategy Deployment</h3>
+              <p className="text-sm md:text-base text-slate-400 leading-relaxed">
                 Deploy strategies to live markets and manage risk. Full control with intelligent guardrails.
               </p>
             </div>
@@ -181,28 +181,28 @@ export default function Home() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 px-6 bg-slate-900/30">
+      <section className="py-12 px-4 md:py-20 md:px-6 bg-slate-900/30">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Mission</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Our Mission</h2>
 
-          <div className="space-y-6 text-slate-300">
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-white">Democratize Algorithmic Trading</h3>
-              <p>
+          <div className="space-y-4 md:space-y-6 text-slate-300">
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Democratize Algorithmic Trading</h3>
+              <p className="text-sm md:text-base leading-relaxed">
                 Professional-grade trading tools shouldn't require a team of quants and engineers. Pelican makes systematic trading accessible to anyone who understands markets.
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-white">Think in Ideas, Not Code</h3>
-              <p>
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Think in Ideas, Not Code</h3>
+              <p className="text-sm md:text-base leading-relaxed">
                 Focus on trading logic and market intuition. Pelican handles the technical complexity—from data processing to deployment infrastructure.
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-3 text-white">Ship Faster, Trade Smarter</h3>
-              <p>
+            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Ship Faster, Trade Smarter</h3>
+              <p className="text-sm md:text-base leading-relaxed">
                 Iterate on strategies in minutes instead of weeks. Test hypotheses, analyze results, and deploy to production without context switching.
               </p>
             </div>
@@ -211,56 +211,58 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-purple-900/20 to-slate-900/20 border-t border-slate-800">
+      <section className="py-12 px-4 md:py-20 md:px-6 bg-gradient-to-r from-purple-900/20 to-slate-900/20 border-t border-slate-800">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 px-2">
             Ready to Transform Your Trading?
           </h2>
-          <p className="text-slate-300 mb-8 text-lg">
+          <p className="text-base md:text-lg text-slate-300 mb-6 md:mb-8 px-4">
             Join the waitlist and be among the first to experience Pelican when we launch
           </p>
 
-          <div className="max-w-md mx-auto flex flex-col gap-3">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Email (optional)"
-              className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
-            />
-            <input
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Phone number (optional)"
-              className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
-            />
-            <input
-              type="text"
-              value={twitterHandle}
-              onChange={(e) => setTwitterHandle(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Twitter/X handle (optional)"
-              className="px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all"
-            />
-            <button
-              onClick={handleSubmit}
-              disabled={!email && !phone && !twitterHandle}
-              className="px-6 py-3 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {submitted ? 'Subscribed!' : 'Join Waitlist'}
-              {!submitted && <ArrowRight className="w-4 h-4" />}
-            </button>
+          <div className="max-w-md mx-auto px-4 md:px-0">
+            <div className="flex flex-col gap-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Email (optional)"
+                className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
+              />
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Phone number (optional)"
+                className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
+              />
+              <input
+                type="text"
+                value={twitterHandle}
+                onChange={(e) => setTwitterHandle(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Twitter/X handle (optional)"
+                className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
+              />
+              <button
+                onClick={handleSubmit}
+                disabled={!email && !phone && !twitterHandle}
+                className="w-full min-h-[44px] px-6 py-3 md:py-3.5 rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-base"
+              >
+                {submitted ? 'Subscribed!' : 'Join Waitlist'}
+                {!submitted && <ArrowRight className="w-4 h-4" />}
+              </button>
+            </div>
+            {error && <p className="text-sm text-red-400 mt-2 text-center">{error}</p>}
           </div>
-          {error && <p className="text-sm text-red-400 mt-2">{error}</p>}
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-8 px-6">
-        <div className="max-w-6xl mx-auto text-center text-slate-400 text-sm">
+      <footer className="border-t border-slate-800 py-6 px-4 md:py-8 md:px-6">
+        <div className="max-w-6xl mx-auto text-center text-slate-400 text-xs md:text-sm">
           <p>© 2025 Pelican. Built by traders who wanted institutional grade analytics.</p>
         </div>
       </footer>
