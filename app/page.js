@@ -11,9 +11,25 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
+  const handleTwitterChange = (e) => {
+    let value = e.target.value;
+    // Remove any existing @ symbols
+    value = value.replace(/@/g, '');
+    // Add @ at the beginning if there's any text
+    if (value.length > 0) {
+      value = '@' + value;
+    }
+    setTwitterHandle(value);
+  };
+
   const handleSubmit = async () => {
     if (!email && !phone && !twitterHandle) {
       setError('Please enter at least one field');
+      return;
+    }
+
+    if (phone && phone.replace(/\D/g, '').length < 10) {
+      setError('Please enter a valid phone number (at least 10 digits)');
       return;
     }
 
@@ -124,7 +140,7 @@ export default function Home() {
               <input
                 type="text"
                 value={twitterHandle}
-                onChange={(e) => setTwitterHandle(e.target.value)}
+                onChange={handleTwitterChange}
                 onKeyPress={handleKeyPress}
                 placeholder="Twitter/X handle (optional)"
                 className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
@@ -244,7 +260,7 @@ export default function Home() {
               <input
                 type="text"
                 value={twitterHandle}
-                onChange={(e) => setTwitterHandle(e.target.value)}
+                onChange={handleTwitterChange}
                 onKeyPress={handleKeyPress}
                 placeholder="Twitter/X handle (optional)"
                 className="w-full px-4 py-3 md:py-3.5 rounded-lg bg-slate-800/50 border border-slate-700 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition-all text-base"
