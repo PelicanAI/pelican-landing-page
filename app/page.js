@@ -94,11 +94,8 @@ export default function Home() {
               height={32}
               className="w-8 h-8 md:w-10 md:h-10 drop-shadow-lg"
             />
-            <span className="text-lg md:text-xl font-bold">Pelican</span>
+            <span className="text-lg md:text-xl font-bold">Pelican Trading</span>
           </div>
-          <button className="px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm rounded-lg bg-purple-600 hover:bg-purple-700 transition-colors font-medium">
-            Join the Waitlist
-          </button>
         </div>
       </header>
 
@@ -106,7 +103,7 @@ export default function Home() {
       <section className="pt-24 pb-12 px-4 md:pt-32 md:pb-20 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 px-2 leading-tight">
-            <span className="bg-gradient-to-r from-white via-purple-100 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white via-purple-100 to-purple-200 bg-clip-text text-transparent">
               Trading Intelligence That
             </span>
             <br />
