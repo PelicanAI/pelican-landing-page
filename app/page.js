@@ -82,9 +82,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-950/50 backdrop-blur-sm fixed w-full z-10">
+      <header className="border-b border-slate-700 bg-slate-900/50 backdrop-blur-sm fixed w-full z-10">
         <div className="max-w-6xl mx-auto px-4 py-3 md:px-6 md:py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Image
@@ -170,14 +170,14 @@ export default function Home() {
       </section>
 
       {/* The Breakthrough Section */}
-      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-800">
+      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-700">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 md:mb-4">Plain English In. Institutional Analytics Out.</h2>
           <p className="text-base md:text-lg text-slate-400 text-center mb-8 md:mb-12">
             Technology that doesn&apos;t exist anywhere else
           </p>
 
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 md:p-8 max-w-3xl mx-auto">
+          <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 md:p-8 max-w-3xl mx-auto">
             <div className="mb-6">
               <p className="text-sm text-slate-500 mb-2">You Type:</p>
               <p className="text-base md:text-lg text-white font-medium">&quot;Is this TSLA dip worth buying?&quot;</p>
@@ -194,9 +194,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-700">
+            <div className="pt-4 border-t border-slate-600">
               <p className="text-sm md:text-base text-slate-400 text-center leading-relaxed">
-                No coding. No complex terminals. No finance degree needed. Just ask like you&apos;re texting a friend who happens to be a quant.
+                No coding. No complex terminals. No finance degree needed. Just ask like you&apos;re texting a friend who happens to be an expert.
               </p>
             </div>
           </div>
@@ -204,12 +204,12 @@ export default function Home() {
       </section>
 
       {/* What Is Pelican */}
-      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-800">
+      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-700">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-16">Your Personal Trading Analyst</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
               <Brain className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">🧠 Natural Language Intelligence</h3>
               <ul className="text-sm md:text-base text-slate-400 leading-relaxed space-y-2">
@@ -219,7 +219,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
               <Terminal className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">📊 Performance Analytics</h3>
               <ul className="text-sm md:text-base text-slate-400 leading-relaxed space-y-2">
@@ -229,7 +229,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6 hover:border-purple-500/50 transition-all">
               <Zap className="w-8 h-8 md:w-10 md:h-10 text-purple-400 mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">💡 Strategic Testing</h3>
               <ul className="text-sm md:text-base text-slate-400 leading-relaxed space-y-2">
@@ -247,12 +247,12 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-800 bg-slate-900/30">
+      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-700 bg-slate-800/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Three Ways Pelican Changes Everything</h2>
 
           <div className="space-y-6 md:space-y-8">
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-3 text-white flex items-start gap-2">
                 <span className="text-purple-400">1.</span>
                 Market Questions → Statistical Answers
@@ -265,7 +265,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-3 text-white flex items-start gap-2">
                 <span className="text-purple-400">2.</span>
                 Trade Ideas → Probability Analysis
@@ -278,7 +278,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-3 text-white flex items-start gap-2">
                 <span className="text-purple-400">3.</span>
                 Performance Review → Actionable Insights
@@ -295,26 +295,26 @@ export default function Home() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-12 px-4 md:py-20 md:px-6 bg-slate-900/30">
+      <section className="py-12 px-4 md:py-20 md:px-6 bg-slate-800/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Our Mission</h2>
 
           <div className="space-y-4 md:space-y-6 text-slate-300">
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Democratize Algorithmic Trading</h3>
               <p className="text-sm md:text-base leading-relaxed">
                 Professional-grade trading tools shouldn&apos;t require a team of quants and engineers. Pelican makes systematic trading accessible to anyone who understands markets.
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Think in Ideas, Not Code</h3>
               <p className="text-sm md:text-base leading-relaxed">
                 Focus on trading logic and market intuition. Pelican handles the technical complexity—from data processing to deployment infrastructure.
               </p>
             </div>
 
-            <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 md:p-6">
+            <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Ship Faster, Trade Smarter</h3>
               <p className="text-sm md:text-base leading-relaxed">
                 Iterate on strategies in minutes instead of weeks. Test hypotheses, analyze results, and deploy to production without context switching.
@@ -325,7 +325,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 px-4 md:py-20 md:px-6 bg-gradient-to-r from-purple-900/20 to-slate-900/20 border-t border-slate-800">
+      <section className="py-12 px-4 md:py-20 md:px-6 bg-gradient-to-r from-purple-900/20 to-slate-900/20 border-t border-slate-700">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 px-2">
             Ready to Transform Your Trading?
@@ -378,7 +378,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 py-6 px-4 md:py-8 md:px-6">
+      <footer className="border-t border-slate-700 py-6 px-4 md:py-8 md:px-6">
         <div className="max-w-6xl mx-auto text-center text-slate-400 text-xs md:text-sm">
           <p>© 2025 Pelican. Built by traders who wanted institutional grade analytics.</p>
         </div>
