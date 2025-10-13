@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ArrowRight, Terminal, Brain, Zap, ChevronDown } from 'lucide-react';
 
@@ -10,6 +10,32 @@ export default function Home() {
   const [twitterHandle, setTwitterHandle] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+
+  // Intersection Observer hook for animations
+  const useInView = (options = {}) => {
+    const ref = useRef(null);
+    const [isInView, setIsInView] = useState(false);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !isInView) {
+          setIsInView(true);
+        }
+      }, { threshold: 0.1, ...options });
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, [isInView, options]);
+
+    return [ref, isInView];
+  };
 
   const handleTwitterChange = (e) => {
     let value = e.target.value;
@@ -79,6 +105,57 @@ export default function Home() {
     if (e.key === 'Enter') {
       handleSubmit();
     }
+  };
+
+  // ChatDemo Component
+  const ChatDemo = ({ title, messages, useInView }) => {
+    const [ref, isInView] = useInView();
+    const [visibleMessages, setVisibleMessages] = useState([]);
+
+    useEffect(() => {
+      if (isInView && visibleMessages.length === 0) {
+        // Show messages with delay
+        messages.forEach((_, index) => {
+          setTimeout(() => {
+            setVisibleMessages(prev => [...prev, index]);
+          }, index * 800);
+        });
+      }
+    }, [isInView, messages, visibleMessages.length]);
+
+    return (
+      <div ref={ref} className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6 min-h-[400px]">
+        <h3 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-center text-purple-400">{title}</h3>
+        <div className="space-y-4">
+          {messages.map((message, index) => (
+            <div
+              key={index}
+              className={`transform transition-all duration-700 ${
+                visibleMessages.includes(index)
+                  ? 'opacity-100 translate-x-0'
+                  : message.type === 'user'
+                  ? 'opacity-0 translate-x-8'
+                  : 'opacity-0 -translate-x-8'
+              }`}
+            >
+              {message.type === 'user' ? (
+                <div className="flex justify-end">
+                  <div className="bg-purple-600/80 rounded-lg px-4 py-3 max-w-[85%]">
+                    <p className="text-sm md:text-base text-white leading-relaxed">{message.text}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex justify-start">
+                  <div className="bg-slate-700/80 rounded-lg px-4 py-3 max-w-[90%]">
+                    <p className="text-sm md:text-base text-slate-100 leading-relaxed whitespace-pre-line">{message.text}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -196,6 +273,38 @@ export default function Home() {
                 No coding. No complex terminals. No finance degree needed. Just ask like you&apos;re texting a friend who happens to be an expert.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Chat Demo Section */}
+      <section className="py-12 px-4 md:py-20 md:px-6 border-t border-slate-700 bg-slate-800/20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 md:mb-4">Pelican for Every Trader</h2>
+          <p className="text-base md:text-lg text-slate-400 text-center mb-8 md:mb-12">
+            Whether you&apos;re just starting or managing millions, Pelican speaks your language
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {/* New Trader Demo */}
+            <ChatDemo
+              title="New to Trading"
+              useInView={useInView}
+              messages={[
+                { type: 'user', text: 'Is this TSLA dip worth buying?' },
+                { type: 'pelican', text: 'Maybe—but only if buyers keep defending today\'s levels. As of 12:04 ET, TSLA is $425.21 (+2.8%) after bouncing from a low of $419.70, so dips are getting bought intraday.\n\nSimple plans for a new trader:\n- Aggressive buy-the-dip: look for a pullback that holds 420–422, enter on a turn back up, risk a stop just below 419 (today\'s low). First target 429–430 (today\'s high), then 435 if momentum continues.\n- Conservative: wait for a clean push and hold above 430, then buy a pullback toward 428–430, risk to ~423–425, target 435–440.\n\nIf 419 breaks with volume and it can\'t reclaim quickly, skip it and wait for a better setup. Keep size small—TSLA moves fast—define your risk before you click.' }
+              ]}
+            />
+
+            {/* Experienced Trader Demo */}
+            <ChatDemo
+              title="Experienced Trader"
+              useInView={useInView}
+              messages={[
+                { type: 'user', text: 'The QQQ\'s closed down over -3% today. Using QQQ data for 2025, find every instance the QQQ\'s closed down -3% in a single day, and give me the 2 week return of the QQQ\'s following that event.' },
+                { type: 'pelican', text: 'QQQ closed down at least -3% and the 2-week (10 trading days) return that followed:\n\n- 2025-03-07: -3.88% day, next 2 weeks: -2.2%\n- 2025-04-02: -5.35% day, next 2 weeks: -6.71%\n- 2025-04-03: -6.21% day, next 2 weeks: -1.46%\n- 2025-04-09: -4.25% day, next 2 weeks: +0.29%\n- 2025-04-15: -3.02% day, next 2 weeks: +3.82%\n\nSummary (2-week/10-trading-day follow-through):\n- Count: 5\n- Average: -1.26%\n- Median: -1.46%\n- Best: +3.82%\n- Worst: -6.71%' }
+              ]}
+            />
           </div>
         </div>
       </section>
