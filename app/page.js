@@ -430,6 +430,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trading Analytix Collaboration Section */}
+      <section className="py-8 px-4 md:py-12 md:px-6 border-t border-slate-700/50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-lg md:text-xl text-slate-400 mb-2">In Collaboration with</h3>
+          <div className="flex justify-center mb-4">
+            <Image
+              src="/trading-analytix-logo.png"
+              alt="Trading Analytix"
+              width={120}
+              height={120}
+              className="w-24 h-24 md:w-32 md:h-32"
+            />
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold text-white">Trading Analytix</h2>
+          <p className="text-base md:text-lg text-slate-300 mt-3">
+            Where 180 years of market experience meets next-generation intelligence.
+          </p>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-12 px-4 md:py-20 md:px-6 bg-gradient-to-r from-purple-900/20 to-slate-900/20 border-t border-slate-700">
         <div className="max-w-3xl mx-auto text-center">
