@@ -233,6 +233,9 @@ export default function Home() {
             </div>
             {error && <p className="text-sm text-red-400 mt-2 text-center">{error}</p>}
             <p className="text-sm text-slate-400 mt-3 text-center">
+              No purchase required
+            </p>
+            <p className="text-sm text-slate-400 mt-1 text-center">
               First 500 members get lifetime pricing
             </p>
           </div>
@@ -497,6 +500,9 @@ export default function Home() {
             </div>
             {error && <p className="text-sm text-red-400 mt-2 text-center">{error}</p>}
             <p className="text-sm text-slate-400 mt-3 text-center">
+              No purchase required
+            </p>
+            <p className="text-sm text-slate-400 mt-1 text-center">
               First 500 members get lifetime pricing
             </p>
           </div>
