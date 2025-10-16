@@ -59,6 +59,11 @@ export default function Home() {
       return;
     }
 
+    if (email && (!email.trim() || !email.includes('@'))) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
     try {
       const supabaseUrl = 'https://ewcqmsfaostcwmgybbub.supabase.co';
       const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV3Y3Ftc2Zhb3N0Y3dtZ3liYnViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MDc2NzgsImV4cCI6MjA2NzQ4MzY3OH0.fTisTg3jBy2WSuuIkvWToZ8c3R133QJ5FL0o0Q7c4MU';
