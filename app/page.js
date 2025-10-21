@@ -513,6 +513,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Languages Section */}
+      <section className="py-12 px-4 md:py-16 md:px-6 border-t border-slate-700 bg-slate-800/20">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 md:mb-4">Available in 30+ Languages</h2>
+          <p className="text-base md:text-lg text-slate-400 text-center mb-8 md:mb-10">
+            Pelican speaks your language, wherever you trade
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto">
+            {[
+              'Chinese', 'Spanish', 'Japanese', 'Korean', 'French', 'German',
+              'Portuguese', 'Italian', 'Dutch', 'Russian', 'Turkish', 'Arabic',
+              'Polish', 'Czech', 'Slovak', 'Hungarian', 'Romanian', 'Greek',
+              'Swedish', 'Danish', 'Norwegian', 'Finnish', 'Ukrainian', 'Hebrew',
+              'Indonesian', 'Malay', 'Vietnamese', 'Thai', 'Filipino/Tagalog'
+            ].map((language) => (
+              <div
+                key={language}
+                className="bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 text-center text-sm md:text-base text-slate-300 hover:border-purple-500/50 transition-all"
+              >
+                {language}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-slate-700 py-6 px-4 md:py-8 md:px-6">
         <div className="max-w-6xl mx-auto text-center text-slate-400 text-xs md:text-sm">
