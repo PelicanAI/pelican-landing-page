@@ -193,11 +193,11 @@ export default function Home() {
           </h1>
 
           <h2 className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 md:mb-6 max-w-3xl mx-auto px-2">
-            Ask any market question. Get institutional-grade analysis. Make smarter decisions.
+            Ask any market question. Get professional-level analysis. Make smarter decisions.
           </h2>
 
           <p className="text-base md:text-lg text-slate-300 mb-8 md:mb-10 max-w-2xl mx-auto px-2">
-            Pelican AI is the first platform that turns your plain English questions into professional market analytics. Like having a hedge fund analyst who actually explains things clearly. Broker Agnostic. $50/month.
+            Pelican AI is the first platform that turns your plain English questions into professional market analytics. Like having a hedge fund analyst who actually explains things clearly. Works with any broker you use. $50/month.
           </p>
 
           {/* Email Signup */}
@@ -271,8 +271,8 @@ export default function Home() {
                 <p className="text-slate-300">✓ <span className="font-medium">Drawdown Analysis:</span> -12% (67th percentile of corrections)</p>
                 <p className="text-slate-300">✓ <span className="font-medium">Recovery Stats:</span> 73% recover within 8 days historically</p>
                 <p className="text-slate-300">✓ <span className="font-medium">Support Levels:</span> Strong volume support at $218</p>
-                <p className="text-slate-300">✓ <span className="font-medium">Risk Metrics:</span> Sharpe ratio declined from 1.8 to 0.9</p>
-                <p className="text-slate-300">✓ <span className="font-medium">Market Context:</span> Decoupling from tech sector by 2.1σ</p>
+                <p className="text-slate-300">✓ <span className="font-medium">Risk Metrics:</span> Risk-adjusted returns have gotten weaker recently</p>
+                <p className="text-slate-300">✓ <span className="font-medium">Market Context:</span> Moving differently from other tech stocks</p>
               </div>
             </div>
 
@@ -348,14 +348,14 @@ export default function Home() {
               <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">💡 Strategic Testing</h3>
               <ul className="text-sm md:text-base text-slate-400 leading-relaxed space-y-2">
                 <li>• Test any trading idea in seconds</li>
-                <li>• Historical pattern matching</li>
-                <li>• Risk/reward optimization</li>
+                <li>• See how similar situations worked in the past</li>
+                <li>• Find the best risk vs reward balance</li>
               </ul>
             </div>
           </div>
 
           <p className="text-center text-sm md:text-base text-slate-400 mt-8 md:mt-12 italic">
-            Broker Agnostic – Use with any trading platform
+            Works with any trading platform or broker you prefer
           </p>
         </div>
       </section>
@@ -375,7 +375,7 @@ export default function Home() {
                 <span className="font-medium text-slate-300">You ask:</span> &quot;Why is the market down?&quot;
               </p>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                <span className="font-medium text-slate-300">Pelican analyzes:</span> Bond yields, sector rotations, volatility clusters, and historical analogues
+                <span className="font-medium text-slate-300">Pelican analyzes:</span> Bond yields, which sectors are moving, market volatility patterns, and similar situations from the past
               </p>
             </div>
 
@@ -388,7 +388,7 @@ export default function Home() {
                 <span className="font-medium text-slate-300">You ask:</span> &quot;Good setup on AAPL?&quot;
               </p>
               <p className="text-sm md:text-base text-slate-400 leading-relaxed">
-                <span className="font-medium text-slate-300">Pelican calculates:</span> Win rates, risk/reward distributions, optimal position sizing
+                <span className="font-medium text-slate-300">Pelican calculates:</span> How often this setup wins, how much you could make vs lose, and how much to invest
               </p>
             </div>
 
@@ -415,23 +415,23 @@ export default function Home() {
 
           <div className="space-y-4 md:space-y-6 text-slate-300">
             <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
-              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Democratize Algorithmic Trading</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Make Professional Trading Tools Available to Everyone</h3>
               <p className="text-sm md:text-base leading-relaxed">
-                Professional-grade trading tools shouldn&apos;t require a team of quants and engineers. Pelican makes systematic trading accessible to anyone who understands markets.
+                You shouldn&apos;t need a team of programmers and math experts to get professional trading tools. Pelican makes advanced trading analysis simple and accessible—no technical background required.
               </p>
             </div>
 
             <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Think in Ideas, Not Code</h3>
               <p className="text-sm md:text-base leading-relaxed">
-                Focus on trading logic and market intuition. Pelican handles the technical complexity—from data processing to deployment infrastructure.
+                Focus on your trading ideas and market instincts. Pelican handles all the technical stuff—from gathering data to making it work—so you don&apos;t have to.
               </p>
             </div>
 
             <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-5 md:p-6">
-              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Ship Faster, Trade Smarter</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">Test Ideas Fast, Trade Better</h3>
               <p className="text-sm md:text-base leading-relaxed">
-                Iterate on strategies in minutes instead of weeks. Test hypotheses, analyze results, and deploy to production without context switching.
+                Try out new trading ideas in minutes instead of weeks. Test your strategies, see what works, and start using them right away—all in one place.
               </p>
             </div>
           </div>
